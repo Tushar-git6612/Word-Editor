@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import Login from "./Login";
+// import Login from "./Login";
 
 export default class Myeditor extends Component {
   constructor() {
     super();
     this.state = {
       editorarea: "type here",
-      show: false,
+      // show: false,
       userobj: {
         email: "",
         password: "",
@@ -91,63 +91,65 @@ export default class Myeditor extends Component {
   }
 
   render() {
+
     //loginfunc----
-    const loginUser = async (userInfor) => {
-      console.log(userInfor);
-      const resData = await fetch(
-        `http://localhost/apis/login.php?email=${userInfor.email}&password=${userInfor.password}`,
-        {
-          method: "GET",
-          headers: {
-            "content-Type": "application/json",
-          },
-        }
-      )
-      .catch((error)=>{
-        console.log(error)
-      });
-      if(resData){
-        const jsData = await resData.json();
-        console.log(jsData.data[0]);
-        if (jsData.status === 1) {
-          this.setState({
-            show: true,
-          });
-        }
-      }else{
-        alert("server not found");
-      }
-    };
+    // const loginUser = async (userInfor) => {
+    //   console.log(userInfor);
+    //   const resData = await fetch(
+    //     `http://localhost/apis/login.php?email=${userInfor.email}&password=${userInfor.password}`,
+    //     {
+    //       method: "GET",
+    //       headers: {
+    //         "content-Type": "application/json",
+    //       },
+    //     }
+    //   )
+    //   .catch((error)=>{
+    //     console.log(error)
+    //   });
+    //   if(resData){
+    //     const jsData = await resData.json();
+    //     console.log(jsData.data[0]);
+    //     if (jsData.status === 1) {
+    //       this.setState({
+    //         show: true,
+    //       });
+    //     }
+    //   }else{
+    //     alert("server not found");
+    //   }
+    // };
 
     // formFunction
-    const onChangeHanfle = (event) => {
-      this.setState({
-        userobj: {
-          ...this.state.userobj,
-          [event.target.name]: event.target.value,
-        },
-      });
-    };
+    // const onChangeHanfle = (event) => {
+    //   this.setState({
+    //     userobj: {
+    //       ...this.state.userobj,
+    //       [event.target.name]: event.target.value,
+    //     },
+    //   });
+    // };
 
-    const submitHandle = (event) => {
-      event.preventDefault();
-      if (
-        this.state.userobj.email !== "" &&
-        this.state.userobj.password !== ""
-      ) {
-        loginUser(this.state.userobj);
-        this.setState({
-          userobj: {
-            email: "",
-            password: "",
-          },
-        });
-      }
-    };
+    // const submitHandle = (event) => {
+    //   event.preventDefault();
+    //   if (
+    //     this.state.userobj.email !== "" &&
+    //     this.state.userobj.password !== ""
+    //   ) {
+    //     loginUser(this.state.userobj);
+    //     this.setState({
+    //       userobj: {
+    //         email: "",
+    //         password: "",
+    //       },
+    //     });
+    //   }
+    // };
 
     return (
       <>
-        {this.state.show && (
+        {/* {this.state.show &&  */}
+        (
           <main>
             <div className="container text-center my-2">
               <textarea
@@ -250,12 +252,15 @@ export default class Myeditor extends Component {
               </div>
             </div>
           </main>
-        )}
-        <Login
+        )
+        {/* } */}
+
+
+        {/* <Login
           formState={this.state.userobj}
           changeHandle={onChangeHanfle}
           submitHandle={submitHandle}
-        />
+        /> */}
       </>
     );
   }
