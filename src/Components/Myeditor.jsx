@@ -17,7 +17,7 @@ export default class Myeditor extends Component {
     this.textLowercase = this.textLowercase.bind(this);
     this.textClear = this.textClear.bind(this);
     this.textCapitalize = this.textCapitalize.bind(this);
-    this.copyText = this.copyText.bind(this);
+    // this.copyText = this.copyText.bind(this);
     this.boldText = this.boldText.bind(this);
   }
 
